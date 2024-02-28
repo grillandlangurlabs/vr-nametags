@@ -1,0 +1,29 @@
+import java.util.Random;
+
+public class VRUsernameGenerator {
+    private static final String[] adjectives = {"Virtual", "Cyber", "Digital", "Nano", "Quantum", "Futuristic", "Neon", "Cosmic", "Synthetic", "Astral"};
+    private static final String[] nouns = {"Explorer", "Adventurer", "Pioneer", "Journeyer", "Navigator", "Voyager", "Nomad", "Wayfarer", "Trailblazer", "Seeker"};
+
+    public static void main(String[] args) {
+        String username = generateUsername();
+        System.out.println("Generated Username for VR Game: " + username);
+        String usernameForDisplay = generateUsernameForDisplay(username);
+        System.out.println("Username for Display: " + usernameForDisplay);
+    }
+
+    private static String generateUsername() {
+        Random random = new Random();
+        String adjective = adjectives[random.nextInt(adjectives.length)];
+        String noun = nouns[random.nextInt(nouns.length)];
+        return adjective + noun;
+    }
+
+    private static String generateUsernameForDisplay(String username) {
+        // Add some additional characters or symbols to make the username more unique and visually appealing
+        Random random = new Random();
+        char[] additionalChars = {'!', '@', '#', '$', '%', '&'};
+        char additionalChar = additionalChars[random.nextInt(additionalChars.length)];
+        int randomNumber = random.nextInt(100);
+        return username + additionalChar + randomNumber;
+    }
+}
